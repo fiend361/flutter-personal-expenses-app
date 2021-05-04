@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './transaction.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -42,7 +43,6 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -51,6 +51,28 @@ class MyHomePage extends StatelessWidget {
               color: Colors.blue,
               child: Text('chart'),
               elevation: 5,
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text('Add Transaction'),
+                    textColor: Colors.red,
+                  )
+                ],
+              ),
             ),
           ),
           Column(
@@ -71,7 +93,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        tx.amount.toString(),
+                        '\$' + tx.amount.toString(),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -90,7 +112,7 @@ class MyHomePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          tx.date.toString(),
+                          DateFormat().format(tx.date),
                           style: TextStyle(
                             color: Colors.grey,
                           ),
