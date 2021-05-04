@@ -14,16 +14,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Personal Expenses',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'Quicksand',
-      ),
+      theme: ThemeData.dark(),
       home: MyHomePage(),
     );
   }
 }
 
+/*ThemeData(
+primarySwatch: Colors.blue,
+fontFamily: 'Quicksand',
+),*/
+//
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
